@@ -1,0 +1,30 @@
+﻿@page "/game"
+
+<div class="text-center mb-3">
+    <h1 class="mb-3 text-3xl">Conway's Game of Life</h1>
+    <button @onclick="Play" class="border-2 border-black p-3 rounded">Begin Generation</button>
+    <button @onclick="StopGame" class="border-2 border-black p-3 rounded">Stop</button>
+</div>
+<div class="flex justify-center">
+    <table>
+        @for (int i = 1; i < Height; i++)
+        {
+            <tr>
+                @for (int j = 1; j < Width; j++)
+                {
+                    var cell = Grid[i, j];
+
+                    if (cell == null)
+                    {
+                        <td>null</td>
+                    }
+                    else
+                    {
+                        var colour = cell.State.ToString() == "Alive" ? "bg-green-500" : "bg-red-500";
+                        <td class="@colour">@cell.State.ToString()</td>
+                    }
+                }
+            </tr>
+        }
+    </table>
+</div>
