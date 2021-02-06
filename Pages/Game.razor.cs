@@ -33,6 +33,11 @@ namespace GameOfLife.Pages
             }
         }
 
+        public void ResetGame()
+        {
+            Grid = GameService.Initialise(Width, Height);
+        }
+
         public void StopGame()
         {
             RunSimulation = false;

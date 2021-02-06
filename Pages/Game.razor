@@ -4,13 +4,19 @@
     <h1 class="mb-3 text-3xl">Conway's Game of Life</h1>
     <button @onclick="Play" class="border-2 border-black p-3 rounded">Begin Generation</button>
     <button @onclick="StopGame" class="border-2 border-black p-3 rounded">Stop</button>
+    <button @onclick="ResetGame" class="border-2 border-black p-3 rounded">Reset</button>
+    <select>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+    </select>
 </div>
 <div class="flex justify-center">
     <table>
-        @for (int i = 1; i < Height; i++)
+        @for (int i = 1; i < Height - 1; i++)
         {
             <tr>
-                @for (int j = 1; j < Width; j++)
+                @for (int j = 1; j < Width - 1; j++)
                 {
                     var cell = Grid[i, j];
 
